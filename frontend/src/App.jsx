@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.scss'
 import Home from './pages/home'
-import List from './pages/List'
+import List from './pages/list'
 import Detail from './pages/detail'  // 詳細ページをインポート
 import NotFound from './pages/notfound'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
