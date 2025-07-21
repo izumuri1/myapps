@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import styles from "./style.module.scss";
-import { API_URLS } from '../../config/config'; // 設定ファイルをインポート
+import { API_URLS } from '../../config/config.js'; // 設定ファイルをインポート
 
 const HookForm = ({onSubmit}) => {
     const {

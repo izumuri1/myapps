@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
 import styles from "./style.module.scss";
-import { API_URLS } from '../../config/config'; // 設定ファイルをインポート
+import { API_URLS } from '../../config/config.js'; // 設定ファイルをインポート
 
 const Update = ({ onSubmit, schoolData }) => {
     const { id } = useParams(); // URLパラメータからIDを取得

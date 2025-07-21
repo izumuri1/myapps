@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import "./style.module.scss";
 import Layout from "../../layout/Layout";
 import Update from "../../components/Update";
-import { API_URLS } from '../../config/config'; // 設定ファイルをインポート
+import { API_URLS } from '../../config/config.js'; // 設定ファイルをインポート
 
 const Detail = () => {
   const { id } = useParams(); // URLパラメータからIDを取得

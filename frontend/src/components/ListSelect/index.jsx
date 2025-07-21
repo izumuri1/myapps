@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styles from "./style.module.scss";
-import { API_URLS, getApiUrl } from '../../config/config'; // 設定ファイルをインポート
+import { API_URLS, getApiUrl } from '../../config/config.js'; // 設定ファイルをインポート
 
 const ListSelect = ({ sortType }) => {
     const navigate = useNavigate();

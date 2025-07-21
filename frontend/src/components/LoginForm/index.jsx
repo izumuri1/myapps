@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import styles from "./style.module.scss";
-import { API_URLS } from '../../config/config';
+import { API_URLS } from '../../config/config.js';
 
 const LoginForm = ({ onSubmit }) => {
     const [isLoading, setIsLoading] = useState(false);
