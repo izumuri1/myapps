@@ -1,0 +1,39 @@
+:root {
+  --header-height: 190px;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.homeHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1024px;
+  height: var(--header-height);
+  background-color: orange;
+  z-index: 1000;
+  margin: 0 auto;         /* 横中央 */
+  left: 0; right: 0;
+}
+.mainWrapper {
+  display: flex;
+  width: 1024px;
+  margin-top: var(--header-height);
+  margin-left: auto;
+  margin-right: auto;     /* 横中央 */
+}
+.leftMain {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 24px 8px;
+  background-color: gainsboro;
+}
+.rightMain {
+  width: 75%;
+  padding: 24px;
+  box-sizing: border-box;
+  min-width: 0;
+  background-color: rgb(237, 234, 234);
+}

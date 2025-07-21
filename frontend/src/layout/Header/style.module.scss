@@ -1,0 +1,28 @@
+.headerMenu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  .menuContainer {
+    display: flex;
+    flex-direction: row;    // 横並び
+    gap: 12px;              // li間の等間隔
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .menuContainer li a {
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.2s;
+    background-color: gray;
+  }
+  .menuContainer li a:hover {
+    background: pink;        // ホバー時の背景
+  }
+
+}
+

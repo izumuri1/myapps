@@ -1,0 +1,285 @@
+// style.module.scss
+
+.container {
+  padding: 20px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #666;
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #d32f2f;
+  background-color: #ffebee;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.noData {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #666;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+// 🔥 テーブルコンテナの改善：横スクロール対応
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  // 最大幅を設定して枠からはみ出さないように
+  max-width: 100%;
+}
+
+// 🔥 テーブル自体のサイズ調整
+.schoolTable {
+  width: 100%;
+  min-width: 1000px; // 最小幅を少し縮小
+  border-collapse: collapse;
+  font-size: 13px; // フォントサイズを少し小さく
+  table-layout: fixed; // カラム幅を固定
+
+  th, td {
+    padding: 8px 6px; // パディングを少し縮小
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  thead {
+    background-color: #f8f9fa;
+    
+    th {
+      font-weight: 600;
+      color: #333;
+      text-align: left;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 2px solid #dee2e6;
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: #f8f9fa;
+      }
+    }
+  }
+}
+
+// 太字スタイル
+.bold {
+  font-weight: 600;
+}
+
+// テキスト配置
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+// 🔥 各カラムの幅設定を調整（合計100%に）
+.schoolName {
+  width: 12%;
+  min-width: 80px;
+}
+
+.interest {
+  width: 6%;
+  min-width: 40px;
+}
+
+.examStartTime {
+  width: 10%;
+  min-width: 100px;
+}
+
+.hensa {
+  width: 6%;
+  min-width: 40px;
+}
+
+.station {
+  width: 8%;
+  min-width: 70px;
+}
+
+.walk {
+  width: 5%;
+  min-width: 40px;
+}
+
+.favorite {
+  width: 12%;
+  min-width: 80px;
+}
+
+.application {
+  width: 10%;
+  min-width: 100px;
+}
+
+.applicationFee {
+  width: 7%;
+  min-width: 60px;
+}
+
+.entrance {
+  width: 10%;
+  min-width: 100px;
+}
+
+.entranceFee {
+  width: 7%;
+  min-width: 60px;
+}
+
+// 🔥 操作カラムのスタイル（サイズ調整）
+.actions {
+  width: 7%;
+  min-width: 70px; // 少し縮小
+  text-align: center;
+  padding: 4px !important;
+}
+
+// 🔥 アクションボタンコンテナ（縦配置でコンパクトに）
+.actionButtons {
+  display: flex;
+  flex-direction: column; // 縦配置に変更
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+}
+
+// 🔥 基本的なボタンスタイル（サイズダウン）
+.actionBtn {
+  padding: 2px 6px; // パディングを縮小
+  border: none;
+  border-radius: 3px;
+  font-size: 10px; // フォントサイズを縮小
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 32px; // 最小幅を縮小
+  height: 20px; // 高さを固定
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// 詳細ボタンのスタイル
+.detailBtn {
+  background-color: #2196f3;
+  color: white;
+
+  &:hover {
+    background-color: #1976d2;
+  }
+
+  &:focus {
+    outline: 2px solid #90caf9;
+    outline-offset: 2px;
+  }
+}
+
+// 削除ボタンのスタイル
+.deleteBtn {
+  background-color: #f44336;
+  color: white;
+
+  &:hover {
+    background-color: #d32f2f;
+  }
+
+  &:focus {
+    outline: 2px solid #ffcdd2;
+    outline-offset: 2px;
+  }
+}
+
+// 🔥 レスポンシブ対応の改善
+@media (max-width: 1400px) {
+  .schoolTable {
+    min-width: 900px;
+    font-size: 12px;
+  }
+  
+  .actionBtn {
+    font-size: 9px;
+    padding: 2px 4px;
+    min-width: 28px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .schoolTable {
+    min-width: 800px;
+    font-size: 11px;
+  }
+  
+  .actions {
+    width: 60px;
+    min-width: 60px;
+  }
+  
+  .actionBtn {
+    font-size: 8px;
+    padding: 1px 3px;
+    min-width: 25px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .schoolTable {
+    min-width: 700px;
+    font-size: 10px;
+    
+    th, td {
+      padding: 6px 4px;
+    }
+  }
+  
+  .actions {
+    width: 50px;
+    min-width: 50px;
+  }
+  
+  .actionBtn {
+    font-size: 7px;
+    padding: 1px 2px;
+    min-width: 22px;
+    height: 14px;
+  }
+}

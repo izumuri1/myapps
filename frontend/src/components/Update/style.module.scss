@@ -1,0 +1,64 @@
+.container {
+  width: 100vw;
+  display: flex;
+
+    /* 横幅いっぱいフォームにする */
+    form {
+        width: 100vw;
+        max-width: 100vw;
+    }
+
+    h2 {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    h3 {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .formRow {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin: 10px;
+
+        label {
+            text-align: left;
+            width: 200px;
+            font-size: 16px;
+            margin-left: 20px;
+        }
+
+        input,
+        select,
+        button {
+            font-size: 16px;
+            width:300px
+        }
+
+        button {
+            background-color: gray;
+            color: white;
+        }
+
+        button:hover {
+            background-color: pink;
+        }
+
+        .errorMessage {
+            color: red;
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
