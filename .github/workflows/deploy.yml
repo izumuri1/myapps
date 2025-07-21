@@ -34,7 +34,19 @@ jobs:
       working-directory: ./frontend
       run: npm run build
       
-    # 5. ビルド結果を確認（デバッグ用）
+    # 5. デバッグ情報を確認
+    - name: 🔍 Debug Information
+      working-directory: ./frontend
+      run: |
+        echo "📁 Frontend directory contents:"
+        ls -la
+        echo "📂 src directory contents:"
+        ls -la src/
+        echo "📂 config directory contents:"
+        ls -la src/config/
+        echo "📄 config.js exists:"
+        cat src/config/config.js | head -10
+    # 6. ビルド結果を確認（デバッグ用）
     - name: 📊 Check Build Output
       working-directory: ./frontend
       run: |
@@ -42,8 +54,6 @@ jobs:
         ls -la dist/
         echo "📦 Total size:"
         du -sh dist/
-        
-    # 6. Reactファイルをwww/にデプロイ
     - name: 🌐 Deploy React App to www/
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
@@ -54,7 +64,7 @@ jobs:
         server-dir: ./www/
         dangerous-clean-slate: true
         
-    # 7. PHPファイルをwww/backend/にデプロイ
+    # 8. PHPファイルをwww/backend/にデプロイ
     - name: 🐘 Deploy PHP Files to www/backend/
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
@@ -64,7 +74,7 @@ jobs:
         local-dir: ./backend/
         server-dir: ./www/backend/
         
-    # 8. 完了通知
+    # 9. 完了通知
     - name: ✅ Deployment Success
       run: |
         echo "🎉 デプロイが完了しました！"
