@@ -1,0 +1,68 @@
+# .github/workflows/deploy.yml
+name: 🚀 Auto Deploy to Sakura
+
+# いつ実行するか
+on:
+  push:
+    branches: [ main ]    # mainブランチにプッシュされた時
+  workflow_dispatch:      # 手動実行も可能
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # 1. ソースコードを取得
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v3
+      
+    # 2. Node.js環境をセットアップ
+    - name: 🔧 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    # 3. 依存関係をインストール
+    - name: 📦 Install Dependencies
+      run: npm ci
+      
+    # 4. Reactアプリをビルド
+    - name: 🏗️ Build React App
+      run: npm run build
+      
+    # 5. ビルド結果を確認（デバッグ用）
+    - name: 📊 Check Build Output
+      run: |
+        echo "📁 Build completed. Contents:"
+        ls -la dist/
+        echo "📦 Total size:"
+        du -sh dist/
+        
+    # 6. Reactファイルをwww/にデプロイ
+    - name: 🌐 Deploy React App to www/
+      uses: SamKirkland/FTP-Deploy-Action@4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./dist/
+        server-dir: ./www/
+        dangerous-clean-slate: true
+        
+    # 7. PHPファイルをwww/backend/にデプロイ
+    - name: 🐘 Deploy PHP Files to www/backend/
+      uses: SamKirkland/FTP-Deploy-Action@4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./backend/
+        server-dir: ./www/backend/
+        
+    # 8. 完了通知
+    - name: ✅ Deployment Success
+      run: |
+        echo "🎉 デプロイが完了しました！"
+        echo "🌐 サイトURL: https://${{ secrets.FTP_SERVER }}/"
+        echo "⏰ デプロイ時刻: $(date)"
